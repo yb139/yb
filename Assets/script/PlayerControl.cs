@@ -54,11 +54,13 @@ public class PlayerControl : MonoBehaviour
         {
             rigidBody.velocity = new Vector2(Mathf.Sign(rigidBody.velocity.x) * MaxSpeed, rigidBody.velocity.y);
         }
+        anim.SetFloat("speed", Mathf.Abs(h));
         //…Ë÷√∆Ã¯
         if (jump)
         {
             rigidBody.AddForce(new Vector2(0f, jumpforce));
                 jump = false;
+            anim.SetTrigger("jump");
         }
     }
     void flip()
